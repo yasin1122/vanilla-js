@@ -5,7 +5,42 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="style.css" />
+    <title>Image Carousel</title>
   </head>
-  <body></body>
+  <body>
+    <div class="carousel">
+      <div
+        class="image-container"
+        id="imgs">
+        <img
+          src="./images/img1.jpg"
+          alt="image-one" />
+        <img
+          src="./images/img2.jpg"
+          alt="image-two" />
+        <img
+          src="./images/img3.jpg"
+          alt="image-three" />
+        <img
+          src="./images/img4.jpg"
+          alt="image-four" />
+      </div>
+      <div class="buttons-container">
+        <button
+          class="btn"
+          id="left">
+          Prev
+        </button>
+        <button
+          class="btn"
+          id="right">
+          Next
+        </button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
