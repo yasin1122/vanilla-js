@@ -1,23 +1,28 @@
-function throttle(fn, t) {
+function throttle(func, wait) {
   let isThrottled = false
   let nextArgs = null
+  let nextThis = null
 
   return function (...args) {
+    const context = this
+
     if (isThrottled) {
       nextArgs = args
+      nextThis = context // store context for later call
     } else {
-      fn(...args)
+      func.apply(context, args) // use apply
       isThrottled = true
-      setTimeout(helper, t)
+      setTimeout(helper, wait)
     }
   }
 
   function helper() {
     if (nextArgs) {
-      fn(...nextArgs)
+      func.apply(nextThis, nextArgs) // preserve `this` again
       isThrottled = true
       nextArgs = null
-      setTimeout(helper, t)
+      nextThis = null
+      setTimeout(helper, wait)
     } else {
       isThrottled = false
     }
