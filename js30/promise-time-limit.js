@@ -1,6 +1,7 @@
 function timeLimit(fn, t) {
   return async function (...args) {
     return new Promise(async (resolve, reject) => {
+      // setTimeout will return an ID that we can use in clearTimeout
       const id = setTimeout(() => reject('Time Limit Exceeded'), t)
 
       try {
