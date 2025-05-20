@@ -1,33 +1,69 @@
 class EventEmitter {
-  constructor() {
-    this._subs = {}
-  }
+  eventMap = {}
 
-  subscribe(eventName, callback) {
-    let set = this._subs[eventName]
-    if (!set) {
-      this._subs[eventName] = set = new Set()
+  subscribe(event, cb) {
+    if (!(event in this.eventMap)) {
+      this.eventMap[event] = new Set()
     }
-
-    set.add(callback)
+    this.eventMap[event].add(cb)
 
     return {
       unsubscribe: () => {
-        set.delete(callback)
+        this.eventMap[event].delete(cb)
+        // Optionally remove the event if no listeners are left
+        if (this.eventMap[event].size === 0) {
+          delete this.eventMap[event]
+        }
       }
     }
   }
 
-  emit(eventName, args = []) {
-    const result = []
+  emit(event, args = []) {
+    const res = []
+    const listeners = this.eventMap[event]
 
-    const set = this._subs[eventName]
-    if (set) {
-      set.forEach(fn => {
-        result.push(fn(...args))
-      })
+    if (listeners) {
+      for (const cb of listeners) {
+        res.push(cb(...args))
+      }
     }
 
-    return result
+    return res
+  }
+}
+
+// --- Directions
+// Create an 'eventing' library out of the
+// Events class.  The Events class should
+// have methods 'on', 'trigger', and 'off'.
+
+class Events {
+  constructor() {
+    this.events = {}
+  }
+
+  // Register an event handler
+  on(eventName, callback) {
+    if (this.events[eventName]) {
+      this.events[eventName].push(callback)
+    } else {
+      this.events[eventName] = [callback]
+    }
+  }
+
+  // Trigger all callbacks associated
+  // with a given eventName
+  trigger(eventName) {
+    if (this.events[eventName]) {
+      for (let cb of this.events[eventName]) {
+        cb()
+      }
+    }
+  }
+
+  // Remove all event handlers associated
+  // with the given eventName
+  off(eventName) {
+    delete this.events[eventName]
   }
 }
