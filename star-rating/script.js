@@ -24,3 +24,4 @@ function highlightStars(ratingValue) {
     star.classList.toggle('hover', val <= ratingValue)
   })
 }
+//
