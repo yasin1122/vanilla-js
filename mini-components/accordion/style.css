@@ -1,0 +1,20 @@
+.accordion-btn {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: #f1f1f1;
+  font: 1rem/1 Arial, sans-serif;
+}
+
+.accordion-btn:hover {
+  background: #e1e1e1;
+}
+
+.accordion-panel {
+  padding: 0 1rem 1rem;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+}

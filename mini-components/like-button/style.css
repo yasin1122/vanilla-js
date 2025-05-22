@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* base button look */
+.like {
+  display: inline-flex;  /* heart and number on one line */
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 2rem;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid #888;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  user-select: none;             /* no text selection on double-click */
+}
+
+#heart {
+  color: #888;                   /* grey when not liked */
+  transition: color 0.2s;
+}
+
+.like.liked {
+  border-color: #e63946;
+}
+
+.like.liked #heart {
+  color: #e63946;              
+}

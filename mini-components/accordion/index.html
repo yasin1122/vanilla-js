@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Accordion</title>
+    <link
+      rel="stylesheet"
+      href="style.css" />
+  </head>
+  <body>
+    <h1>FAQ</h1>
+
+    <div class="accordion">
+      <button class="accordion-btn">What is your return policy?</button>
+      <div
+        class="accordion-panel"
+        hidden>
+        <p>You can return any item within 30 days of purchase.</p>
+      </div>
+
+      <button class="accordion-btn">Do you ship internationally?</button>
+      <div
+        class="accordion-panel"
+        hidden>
+        <p>Yes, we ship to most countries worldwide.</p>
+      </div>
+
+      <button class="accordion-btn">How can I contact support?</button>
+      <div
+        class="accordion-panel"
+        hidden>
+        <p>You can reach us via email or our support chat.</p>
+      </div>
+
+      <button class="accordion-btn">What are your business hours?</button>
+      <div
+        class="accordion-panel"
+        hidden>
+        <p>Monday – Friday 9 AM – 5 PM EST</p>
+      </div>
+    </div>
+
+    <!-- load JS *after* the HTML so the elements exist -->
+    <script src="script.js"></script>
+  </body>
+</html>

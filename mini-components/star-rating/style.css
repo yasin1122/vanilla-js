@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+}
+
+.star-rating {
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.star-rating .filled {
+  color: gold;
+}

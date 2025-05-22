@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link
+      rel="stylesheet"
+      href="style.css" />
+  </head>
+  <body>
+    <h1>Create an account</h1>
+
+    <form id="signup">
+      <label for="user">Username</label>
+      <input
+        id="user"
+        name="username"
+        type="text"
+        required
+        minlength="4"
+        pattern="[A-Za-z0-9]+" />
+
+      <label for="mail">Email</label>
+      <input
+        id="mail"
+        name="email"
+        type="email"
+        required />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        required
+        minlength="6" />
+
+      <label for="confirm">Confirm Password</label>
+      <input
+        id="confirm"
+        type="password"
+        required />
+
+      <button type="submit">Sign Up</button>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
