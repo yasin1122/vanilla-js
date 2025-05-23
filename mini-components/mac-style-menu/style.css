@@ -35,7 +35,7 @@ body {
 .menu-list {
   position: absolute;
   left: 0;
-  top: 100%;              /* exactly beneath the button */
+  top: 100%; /* exactly beneath the button */
   margin: 0;
   padding: 0.25rem 0;
   list-style: none;
