@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UI Component Cheatsheet</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+      }
+
+      .columns {
+        column-count: 2;
+        column-gap: 0rem;
+      }
+
+      .block {
+        break-inside: avoid;
+        margin-bottom: 0rem;
+      }
+
+      pre {
+        background: #f4f4f4;
+        padding: 0.1rem;
+        font-size: 0.8rem;
+        border: 1px solid #ccc;
+        overflow-x: auto;
+      }
+
+      @media print {
+        body {
+          margin: 0.5in;
+        }
+        pre {
+          white-space: pre-wrap;
+          word-break: break-word;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="columns">
+      <div class="block">
+        <pre><code>&lt;input id="input" /&gt;
+&lt;button id="add"&gt;Add&lt;/button&gt;
+&lt;ul id="list"&gt;&lt;/ul&gt;
+&lt;script&gt;
+add.onclick = () =&gt; {
+  const li = document.createElement('li');
+  li.textContent = input.value;
+  li.onclick = () =&gt; li.remove();
+  list.append(li);
+  input.value = '';
+};
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="block">
+        <pre><code>&lt;div id="stars"&gt;
+  &lt;span&gt;★&lt;/span&gt;&lt;span&gt;★&lt;/span&gt;&lt;span&gt;★&lt;/span&gt;&lt;span&gt;★&lt;/span&gt;&lt;span&gt;★&lt;/span&gt;
+&lt;/div&gt;
+&lt;style&gt;.filled { color: gold; }&lt;/style&gt;
+&lt;script&gt;
+stars.forEach((s, i) =&gt; {
+  s.onclick = () =&gt; {
+    stars.forEach((s2, j) =&gt;
+      s2.classList.toggle('filled', j &lt;= i)
+    );};});
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="block">
+        <pre><code>&lt;form id="form"&gt;
+  &lt;input required /&gt;
+  &lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+&lt;script&gt;
+form.onsubmit = e =&gt; {
+  e.preventDefault();
+  alert('Submitted!');
+};
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="block">
+        <pre><code>&lt;div id="bar"&gt;
+  &lt;div id="progress" style="width:50%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;button id="add"&gt;+10%&lt;/button&gt;
+&lt;script&gt;
+let width = 50;
+add.onclick = () =&gt; {
+  if (width &lt; 100) {
+    width += 10;
+    progress.style.width = width + '%';
+  }};
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="block">
+        <pre><code>&lt;button id="open"&gt;Open&lt;/button&gt;
+&lt;div id="modal" hidden&gt;
+  &lt;p&gt;Modal Content&lt;/p&gt;&lt;button id="close"&gt;X&lt;/button&gt;
+&lt;/div&gt;
+&lt;script&gt;
+open.onclick = () =&gt; modal.hidden = false;
+close.onclick = () =&gt; modal.hidden = true;
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="block">
+        <pre><code>&lt;button&gt;Tab 1&lt;/button&gt;&lt;button&gt;Tab 2&lt;/button&gt;
+&lt;p&gt;One&lt;/p&gt;&lt;p hidden&gt;Two&lt;/p&gt;
+&lt;script&gt;
+buttons.forEach((b, i) =&gt; {
+  b.onclick = () =&gt; {
+    contents.forEach((c, j) =&gt; c.hidden = i !== j);
+  };});
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="block">
+        <pre><code>&lt;nav&gt;
+  &lt;div class="menu"&gt;Menu
+    &lt;ul class="dropdown"&gt;
+      &lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item 2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+&lt;style&gt;
+.dropdown { display: none; }
+.menu:hover .dropdown { display: block; }
+&lt;/style&gt;</code></pre>
+      </div>
+
+      <div class="block">
+        <pre><code>&lt;button id="like"&gt;Like&lt;/button&gt;
+&lt;style&gt;.liked { color: red; }&lt;/style&gt;
+&lt;script&gt;
+like.onclick = () =&gt; like.classList.toggle('liked');
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="block">
+        <pre><code>&lt;img id="img"&gt;
+&lt;button id="prev"&gt;←&lt;/button&gt;&lt;button id="next"&gt;→&lt;/button&gt;
+&lt;script&gt;
+const imgs = ['1.jpg','2.jpg','3.jpg'];
+let i = 0;
+img.src = imgs[i];
+next.onclick = () =&gt; img.src = imgs[++i % imgs.length];
+prev.onclick = () =&gt; img.src = imgs[(--i + imgs.length) % imgs.length];
+&lt;/script&gt;</code></pre>
+      </div>
+
+      <div class="block">
+        <pre><code>&lt;button&gt;Q1&lt;/button&gt;&lt;p hidden&gt;A1&lt;/p&gt;
+&lt;button&gt;Q2&lt;/button&gt;&lt;p hidden&gt;A2&lt;/p&gt;
+&lt;script&gt;
+document.querySelectorAll('button').forEach((btn, i) =&gt; {
+  btn.onclick = () =&gt; {
+    document.querySelectorAll('p').forEach((p, j) =&gt;
+      p.hidden = i !== j ? true : !p.hidden
+    );
+};});
+&lt;/script&gt;</code></pre>
+      </div>
+    </div>
+  </body>
+</html>
