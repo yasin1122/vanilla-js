@@ -309,3 +309,16 @@ fib = memoize(fib)
 console.log(fib(10))
 
 // Section 17: The Queue
+class Queue {
+  constructor() {
+    this.queue = []
+  }
+
+  add(val) {
+    this.queue.unshift(val)
+  }
+
+  remove() {
+    return this.queue.pop()
+  }
+}
