@@ -322,3 +322,36 @@ class Queue {
     return this.queue.pop()
   }
 }
+
+// Section 18: Underwater Queue Weaving
+function weave(sourceOne, sourceTwo) {
+  const weavedQueue = new Queue()
+
+  while (sourceOne.peek() || sourceTwo.peek()) {
+    if (sourceOne.peek()) {
+      weavedQueue.add(sourceOne.remove())
+    }
+    if (sourceTwo.peek()) {
+      weavedQueue.add(sourceTwo.remove())
+    }
+  }
+  return weavedQueue
+}
+
+class Queue {
+  constructor() {
+    this.data = []
+  }
+
+  add(record) {
+    this.data.unshift(record)
+  }
+
+  remove() {
+    return this.data.pop()
+  }
+
+  peek() {
+    return this.data[this.data.length - 1]
+  }
+}
