@@ -492,6 +492,14 @@ class LinkedList {
     if (!prev || !prev.next) {
       return
     }
-    prev.next = prev.next.next || null
+    prev.next = prev.next.next
+  }
+  insertAt(data, index) {
+    if (index === 0) {
+      this.head = new Node(data, this.head)
+      return
+    }
+    const prev = this.getAt(index - 1) || this.getLast()
+    prev.next = new Node(data, prev.next)
   }
 }
