@@ -417,7 +417,15 @@ class LinkedList {
     this.head = null
   }
   insertFirst(data) {
-    const node = new Node(data, this.head)
-    this.head = node
+    this.head = new Node(data, this.head)
+  }
+  size() {
+    let counter = 0
+    let temp = this.head
+    while (temp) {
+      temp = temp.next
+      counter++
+    }
+    return counter
   }
 }
