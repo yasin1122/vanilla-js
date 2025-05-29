@@ -480,4 +480,23 @@ class LinkedList {
     }
     return temp || null
   }
+  removeAt(index) {
+    if (!this.head) {
+      return
+    }
+    if (index === 0) {
+      this.head = this.head.next
+      return
+    }
+    let curr = this.head
+    let counter = 0
+    while (curr && counter < index - 1) {
+      curr = curr.next
+      counter++
+    }
+    if (!curr || !curr.next) {
+      return
+    }
+    curr.next = curr.next.next
+  }
 }
