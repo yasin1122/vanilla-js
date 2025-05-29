@@ -413,5 +413,11 @@ class Node {
   }
 }
 class LinkedList {
-  constructor() {}
+  constructor() {
+    this.head = null
+  }
+  insertFirst(data) {
+    const node = new Node(data, this.head)
+    this.head = node
+  }
 }
