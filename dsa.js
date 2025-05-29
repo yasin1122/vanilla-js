@@ -431,4 +431,17 @@ class LinkedList {
   getFirst() {
     return this.head
   }
+  getLast() {
+    if (!this.head) {
+      return null
+    }
+    temp = this.head
+    while (temp.next) {
+      temp = temp.next
+    }
+    return temp
+  }
+  clear() {
+    this.head = null
+  }
 }
