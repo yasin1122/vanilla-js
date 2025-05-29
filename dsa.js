@@ -488,15 +488,10 @@ class LinkedList {
       this.head = this.head.next
       return
     }
-    let curr = this.head
-    let counter = 0
-    while (curr && counter < index - 1) {
-      curr = curr.next
-      counter++
-    }
-    if (!curr || !curr.next) {
+    let prev = this.getAt(index - 1)
+    if (!prev || !prev.next) {
       return
     }
-    curr.next = curr.next.next
+    prev.next = prev.next.next || null
   }
 }
