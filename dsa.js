@@ -435,7 +435,7 @@ class LinkedList {
     if (!this.head) {
       return null
     }
-    temp = this.head
+    let temp = this.head
     while (temp.next) {
       temp = temp.next
     }
@@ -449,5 +449,19 @@ class LinkedList {
       return
     }
     this.head = this.head.next
+  }
+  removeLast() {
+    if (!this.head) {
+      return
+    }
+    if (!this.head.next) {
+      this.head = null
+      return
+    }
+    let temp = this.head
+    while (temp.next.next) {
+      temp = temp.next
+    }
+    temp.next = null
   }
 }
