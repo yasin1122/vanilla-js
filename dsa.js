@@ -469,10 +469,6 @@ class LinkedList {
       this.head = new Node(data)
       return
     }
-    let temp = this.head
-    while (temp.next) {
-      temp = temp.next
-    }
-    temp.next = new Node(data)
+    this.getLast().next = new Node(data)
   }
 }
