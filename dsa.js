@@ -471,4 +471,13 @@ class LinkedList {
     }
     this.getLast().next = new Node(data)
   }
+  getAt(index) {
+    let temp = this.head
+    let counter = 0
+    while (temp && counter < index) {
+      temp = temp.next
+      counter++
+    }
+    return temp || null
+  }
 }
