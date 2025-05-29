@@ -404,3 +404,14 @@ class Queue {
     return returnVal
   }
 }
+
+// Section 21: Linked Lists
+class Node {
+  constructor(data, next = null) {
+    this.data = data
+    this.next = next
+  }
+}
+class LinkedList {
+  constructor() {}
+}
