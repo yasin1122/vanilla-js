@@ -538,3 +538,19 @@ function circular(list) {
   }
   return false
 }
+
+// Section 24: Step Back From the Tail
+function fromLast(list, n) {
+  let slow = list.getFirst()
+  let fast = list.getFirst()
+
+  while (n > 0) {
+    n--
+    fast = fast.next
+  }
+  while (fast.next) {
+    fast = fast.next
+    slow = slow.next
+  }
+  return slow
+}
