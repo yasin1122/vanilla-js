@@ -554,3 +554,21 @@ function fromLast(list, n) {
   }
   return slow
 }
+
+// Section 25: Building a Tree
+class Node {
+  constructor(data) {
+    this.data = data
+    this.children = []
+  }
+  add(data) {
+    this.children.push(new Node(data))
+  }
+  remove(data) {
+    this.children.filter(node => node.data !== data)
+  }
+}
+
+class Tree {
+  constructor() {}
+}
