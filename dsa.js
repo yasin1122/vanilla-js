@@ -502,5 +502,13 @@ class LinkedList {
     const prev = this.getAt(index - 1) || this.getLast()
     prev.next = new Node(data, prev.next)
   }
+  forEach(func) {
+    let temp = this.head
+    let counter = 0
+    while (counter) {
+      func(temp, counter)
+      temp = temp.next
+      counter++
+    }
+  }
 }
-//
