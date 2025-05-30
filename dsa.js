@@ -503,3 +503,4 @@ class LinkedList {
     prev.next = new Node(data, prev.next)
   }
 }
+//
