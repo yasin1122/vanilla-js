@@ -652,3 +652,30 @@ function validate(node, min = null, max = null) {
   }
   return true
 }
+
+// Section 29: Back to Javascript - Events
+class Events {
+  // Eventing Library Class
+  constructor() {
+    this.events = {} // eventName: arr of callbacks
+  }
+
+  on(eventName, callback) {
+    if (!this.events[callback]) {
+      this.events[eventName] = []
+    }
+    this.events[eventName].push(callback)
+  }
+
+  trigger(eventName, ...args) {
+    if (this.events[eventName]) {
+      for (let callback of this.events[eventName]) {
+        callback(...args)
+      }
+    }
+  }
+
+  off(eventName) {
+    delete this.events[eventName]
+  }
+}
