@@ -565,10 +565,22 @@ class Node {
     this.children.push(new Node(data))
   }
   remove(data) {
-    this.children.filter(node => node.data !== data)
+    this.children = this.children.filter(node => node.data !== data)
   }
 }
 
 class Tree {
-  constructor() {}
+  constructor() {
+    this.root = null
+  }
+  traverseBF(fn) {
+    const arr = [this.root]
+    while (arr.length) {
+      const node = arr.shift()
+      arr.push(...node.children)
+      fn(node)
+    }
+  }
+
+  traverseDF(fn) {}
 }
