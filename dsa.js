@@ -590,3 +590,17 @@ class Tree {
     }
   }
 }
+
+// Section 26: Tree Width with Level Width
+function levelWidth(root) {
+  let cache = [root]
+  const counters = []
+  while (cache.length) {
+    counters.push(cache.length)
+    const newCache = []
+    cache.forEach(node => newCache.push(...node.children))
+    cache = newCache
+  }
+
+  return counters
+}
