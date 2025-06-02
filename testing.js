@@ -1,3 +1,4 @@
+// convert back to js
 function timeLimit(fn: Fn, t: number): Fn {
   return async function (...args) {
     return new Promise(async (resolve, reject) => {
