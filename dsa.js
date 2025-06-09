@@ -684,6 +684,6 @@ class Events {
 
 // Section 31: Sorting with BubbleSort
 
-// Section 32:
+// Section 32: Sort By Selection
 
 // Section 33:
